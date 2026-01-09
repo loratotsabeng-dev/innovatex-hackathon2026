@@ -11,11 +11,11 @@ We are a 5-member team working together to design, build, and present an innovat
 
 **Team Roles:**
 
-* **Project Manager & Pitch Lead** – Overall coordination, task management, and final presentation
-* **UI/UX Designer** – Wireframes, visual design, and user experience
-* **Front-End Developer** – User interface development and responsiveness
-* **Back-End Developer** – Server-side logic, database, and APIs
-* **Research & Documentation Lead** – Problem validation, testing, and documentation
+* **Project Manager & Pitch Lead** – Overall coordination, task management, and final presentation-Lorato
+* **UI/UX Designer** – Wireframes, visual design, and user experience- Brandon
+* **Front-End Developer** – User interface development and responsiveness-Tino
+* **Back-End Developer** – Server-side logic, database, and APIs-Eunice
+* **Research & Documentation Lead** – Problem validation, testing, and documentation-Kgosi
 
 ---
 
