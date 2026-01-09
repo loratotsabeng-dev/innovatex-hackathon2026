@@ -13,9 +13,9 @@ We are a 5-member team working together to design, build, and present an innovat
 
 * **Project Manager & Pitch Lead** – Overall coordination, task management, and final presentation-Lorato
 * **UI/UX Designer** – Wireframes, visual design, and user experience- Brandon
-* **Front-End Developer** – User interface development and responsiveness-Tino
-* **Back-End Developer** – Server-side logic, database, and APIs-Eunice
-* **Research & Documentation Lead** – Problem validation, testing, and documentation-Kgosi
+* **Front-End Developer** – User interface development and responsiveness-Kgosi
+* **Back-End Developer** – Server-side logic, database, and APIs-Tino
+* **Research & Documentation Lead** – Problem validation, testing, and documentation-Eunice
 
 ---
 
