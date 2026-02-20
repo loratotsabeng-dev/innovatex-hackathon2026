@@ -1,0 +1,70 @@
+const express = require("express");
+const nodemailer = require("nodemailer");
+const cors = require("cors");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+
+// CHANGE THESE
+const EMAIL_FROM = "tinorejoicemhara@gmail.com";
+const EMAIL_PASSWORD = "bpozfkxewebckarp";
+const EMAIL_TO = "tinorejoicemhara@gmail.com";
+
+
+// Email transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: EMAIL_FROM,
+    pass: EMAIL_PASSWORD,
+  },
+});
+
+
+// Alert endpoint
+app.post("/alert", async (req, res) => {
+  try {
+    const { name, latitude, longitude } = req.body;
+
+    if (!name || !latitude || !longitude) {
+      return res.status(400).json({ message: "Missing data" });
+    }
+
+    const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+    const mailOptions = {
+      from: EMAIL_FROM,
+      to: EMAIL_TO,
+      subject: "🚨 EMERGENCY ALERT",
+      text: `
+EMERGENCY ALERT
+
+Name: ${name}
+
+Location:
+${mapsLink}
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.json({ message: "Alert sent successfully" });
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      message: "Failed to send alert",
+    });
+  }
+});
+
+
+
+app.listen(3000, () => {
+  console.log("🚨 Server running on port 3000");
+});
