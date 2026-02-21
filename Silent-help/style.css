@@ -1,57 +1,122 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Body background */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 body {
-  background-color: #1a1a1a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  text-align: center;
-  color: white;
+    font-family: 'Poppins', sans-serif; /* modern and sleek font */
+    background-color: #f8f9fa; /* light neutral background */
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
-  margin-bottom: 20px;
-  font-size: 2rem;
+    font-family: "Betania Patmos In", cursive;
+    font-weight: 600;
+    font-style: normal;
+    color: #dc3545; /* primary red for urgency */
+    text-shadow: 1px 1px 2px rgba(220, 53, 69, 0.3); /* subtle shadow for depth */
 }
 
-input {
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: none;
-  margin-bottom: 30px;
-  width: 250px;
-  text-align: center;
+/* Input box styling */
+#nameInput {
+    width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #0d6efd; /* accent blue border */
+    margin: 0 auto 20px auto; /* centers horizontally, keeps bottom margin */
+    display: block; /* allows horizontal centering */
+    color: #212529; /* dark text for readability */
+    text-align: center; /* centers text inside */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff; /* light background for clarity */
+    outline: none; /* removes default focus outline */
 }
 
+/* Custom focus effect instead of blue outline */
+#nameInput:focus {
+    border-color: #0d6efd; /* accent blue border */
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.2); /* subtle glow */
+}
+
+/* Panic button styling */
 #alertButton {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: red;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.1s;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    overflow: visible;
+    background-color: #dc3545; /* primary red */
+    color: #fff;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 -4px 6px rgba(0,0,0,0.2);
 }
 
+/* Scale down on press */
 #alertButton:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
+/* Status text */
 #status {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #aaa;
+    font-weight: 500;
+    color: #6c757d; /* neutral gray for subtlety */
+}
+
+/* Pulsing animation for idle button */
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 107, 107, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 107, 107, 0.7);
+    }
+}
+
+/* Extra aesthetic ring using after pseudo-element */
+#alertButton.pulse::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    margin-left: -110px;
+    margin-top: -110px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 107, 107, 0.5); /* soft red ring */
+    animation: ringPulse 1.5s infinite;
+}
+
+@keyframes ringPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+}
+
+/* Pulse animation class */
+.pulse {
+    animation: pulseAnimation 1.5s infinite;
+}
+
+/* Optional: add subtle hover glow to button */
+#alertButton:hover {
+    box-shadow: 0 0 25px rgba(220, 53, 69, 0.7), inset 0 -4px 6px rgba(0,0,0,0.2);
 }
